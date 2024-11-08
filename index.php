@@ -190,7 +190,7 @@ include_once __DIR__.'/partials/header.php';
         <h2>Order Summary</h2>
         <p>Item: <?=$item_name?>></p>
         <p>Total Amount: <strong>$<?=$item_price?> USD</strong></p>
-        <p>Transaction ID: <strong>#<?php generateRandomNumericCode(6) ?></strong></p>
+        <p>Transaction ID: <strong>#<?=generateRandomNumericCode(6) ?></strong></p>
     </div>
 
     <!-- Choose Cryptocurrency -->
