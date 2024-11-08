@@ -228,8 +228,27 @@
     function selectCrypto(crypto) {
         document.querySelectorAll('.crypto-option').forEach(option => option.classList.remove('selected'));
         document.querySelector(`.crypto-option[onclick="selectCrypto('${crypto}')"]`).classList.add('selected');
-        document.getElementById('walletAddress').value = crypto === 'btc' ? 'BTC Wallet Address' : crypto === 'eth' ? 'ETH Wallet Address' : 'USDT Wallet Address';
-        document.getElementById('amount').textContent = crypto === 'btc' ? '0.0045 BTC' : crypto === 'eth' ? '0.07 ETH' : '200 USDT';
+
+        // Define wallet addresses and exchange rates
+        const walletAddresses = {
+            btc: 'Your BTC Wallet Address',
+            eth: 'Your ETH Wallet Address',
+            usdt: 'Your USDT Wallet Address'
+        };
+
+        const exchangeRates = {
+            btc: 76154.31,  // USD rate per BTC
+            eth: 2913.32,   // USD rate per ETH
+            usdt: 1         // USD rate per USDT
+        };
+
+        // Set the wallet address
+        document.getElementById('walletAddress').value = walletAddresses[crypto];
+
+        // Calculate and set the amount based on the rate and quantity (200)
+        const quantity = 200;
+        const amount = exchangeRates[crypto] * quantity;
+        document.getElementById('amount').textContent = `${amount.toFixed(2)} ${crypto.toUpperCase()}`;
     }
 
     function copyAddress() {
@@ -239,6 +258,7 @@
         alert("Wallet address copied to clipboard!");
     }
 </script>
+
 
 </body>
 </html>
