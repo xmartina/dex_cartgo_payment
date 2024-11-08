@@ -14,9 +14,9 @@ if ($conn->connect_error) {
 }
 
 // Simple query: select all records from a table named 'users'
-$sql = "SELECT * FROM hm2_users ";
-$result = $conn->query($sql);
-$row = $result->fetch_assoc();
+//$sql = "SELECT * FROM hm2_users ";
+//$result = $conn->query($sql);
+//$row = $result->fetch_assoc();
 
 // Check if there are results and output data
 //if ($result->num_rows > 0) {
