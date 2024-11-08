@@ -1,7 +1,12 @@
 <?php
-include_once __DIR__.'/include/config.php';
+include_once __DIR__.'/../include/config.php';
 
-// Assume $cart_id is being passed from the session or index page
+// Get the cart_id from the POST data
+$cart_id = $_POST['cart_id'] ?? null;
+if (!$cart_id) {
+    echo "Cart ID not provided.";
+    exit;
+}
 
 // Retrieve cart details
 $sql = "SELECT * FROM cart_items WHERE cart_id = $cart_id";
@@ -27,13 +32,12 @@ if ($result && $row = $result->fetch_assoc()) {
             $shop_owner_name = $shop_row['name'];
             $shop_legal_name = $shop_row['legal_name'];
 
-            $item_total_price = $item_price * $item_quantity;
             // Insert details into the payment_records table
             $insert_sql = "INSERT INTO z_crypto_manual_payment (item_name, item_price, item_quantity, item_created_at, transaction_id, shop_owner_name, shop_legal_name)
-                           VALUES ('$item_name', '$item_total_price', '$item_quantity', '$item_created_at', '$transaction_id', '$shop_owner_name', '$shop_legal_name')";
+                           VALUES ('$item_name', '$item_price', '$item_quantity', '$item_created_at', '$transaction_id', '$shop_owner_name', '$shop_legal_name')";
 
             if ($conn->query($insert_sql) === TRUE) {
-                echo "success";
+                echo "Payment details recorded successfully!";
             } else {
                 echo "Error: " . $conn->error;
             }
