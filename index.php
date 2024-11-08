@@ -1,3 +1,9 @@
+<?php
+$btc_address = '3FZbgi29cpjq2GjdwV8eyHuJJnkLtktZc5';
+$eth_address = '0x32Be343B94f860124dC4fEe278FDCBD38C102D88';
+$usdt_address = '0x731d15b614C13C6A2AB1f5Bf7E52b68A5C3dE53d';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -231,9 +237,9 @@
 
         // Define wallet addresses and exchange rates
         const walletAddresses = {
-            btc: 'Your BTC Wallet Address',
-            eth: 'Your ETH Wallet Address',
-            usdt: 'Your USDT Wallet Address'
+            btc: '<?=$btc_address?>',
+            eth: '<?=$eth_address?>',
+            usdt: '<?=$usdt_address?>'
         };
 
         const exchangeRates = {
