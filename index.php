@@ -227,7 +227,9 @@ include_once __DIR__.'/partials/header.php';
     <div class="status">
         <p>Status: <span id="statusMessage">Awaiting Payment</span></p>
     </div>
-    <div class="btn btn-warning px-3 py-3">Payment Completed</div>
+    <div class="d-flex justify-content-center">
+        <div class="btn btn-primary px-3 py-2">Payment Completed</div>
+    </div>
 
     <!-- Footer -->
     <div class="footer">
