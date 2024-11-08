@@ -247,7 +247,7 @@
 
         // Calculate and set the amount based on the rate and quantity (200)
         const quantity = 200;
-        const amount = exchangeRates[crypto] * quantity;
+        const amount = exchangeRates[crypto] / quantity;
         document.getElementById('amount').textContent = `${amount.toFixed(2)} ${crypto.toUpperCase()}`;
     }
 
