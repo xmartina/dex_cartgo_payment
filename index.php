@@ -247,8 +247,8 @@
 
         // Calculate and set the amount based on the rate and quantity (200)
         const quantity = 200;
-        const amount = exchangeRates[crypto] / quantity;
-        document.getElementById('amount').textContent = `${amount.toFixed(2)} ${crypto.toUpperCase()}`;
+        const amount = exchangeRates[crypto] * quantity;
+        document.getElementById('amount').textContent = `${amount.toFixed(2)} USD (${crypto.toUpperCase()})`;
     }
 
     function copyAddress() {
@@ -258,6 +258,7 @@
         alert("Wallet address copied to clipboard!");
     }
 </script>
+
 
 
 </body>
