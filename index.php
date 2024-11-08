@@ -245,7 +245,7 @@ if (!strpos($url, 'msg')){
             document.body.prepend(alertBox);
 
             // Automatically remove the alert after 5 seconds
-            setTimeout(() => alertBox.remove(), 5000);
+            setTimeout(() => alertBox.remove(), 10000);
         }
 
         // Check URL parameters for 'msg' and display corresponding alert
