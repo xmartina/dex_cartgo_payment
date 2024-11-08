@@ -228,8 +228,33 @@ include_once __DIR__.'/partials/header.php';
         <p>Status: <span id="statusMessage">Awaiting Payment</span></p>
     </div>
     <div class="d-flex justify-content-center">
-        <div class="btn btn-outline-primary px-3 py-2">Payment Completed</div>
+        <div class="text-muted mb-2">Click the button below if you have completed your payment</div>
+        <div id="paymentCompletedBtn" class="btn btn-outline-primary px-3 py-2">Payment Completed</div>
     </div>
+
+    <script>
+        document.getElementById("paymentCompletedBtn").addEventListener("click", function() {
+            // Send AJAX request to insert.php for DB insertion
+            fetch("insert.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: ""
+            })
+                .then(response => response.text())
+                .then(data => {
+                    if (data === "success") {
+                        alert("Payment details recorded successfully!");
+                    } else {
+                        alert("Failed to record payment details.");
+                        console.error(data);  // Log error details
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+        });
+    </script>
+
 
     <!-- Footer -->
     <div class="footer">
