@@ -1,13 +1,11 @@
 <?php
-session_start();
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-$servername = "localhost"; // Change this if your database is hosted on a different server
-$username = "matagram_tmit_landing_page"; // Change this to your database username
-$password = "tmit_landing_page"; // Your database password
-$dbname = "matagram_tmit_landing_page"; // Your database name
+// Database connection parameters
+$servername = "localhost";  // Database server
+$username = "multistream6_dexcartgo_back";         // Database username
+$password = "dexcartgo_back";             // Database password
+$dbname = "multistream6_dexcartgo_back";        // Database name
 
-// Create connection
+// Create a connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
