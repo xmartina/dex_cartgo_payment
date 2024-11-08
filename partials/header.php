@@ -11,3 +11,8 @@ $item_name = $row['item_description'];
 $item_price = $row['unit_price'];
 $item_quantity = $row['quantity'];
 $item_created_at = $row['created_at'];
+
+
+$uniqueCode = uniqid();
+
+
