@@ -190,6 +190,7 @@ include_once __DIR__.'/partials/header.php';
         <h2>Order Summary</h2>
         <p>Item: <?=$item_name?>></p>
         <p>Total Amount: <strong>$<?=$item_price?> USD</strong></p>
+        <p>Total Quality: <strong><?=$item_quantity?></strong></p>
         <p>Transaction ID: <strong>#<?=generateRandomNumericCode(6) ?></strong></p>
     </div>
 
@@ -225,6 +226,7 @@ include_once __DIR__.'/partials/header.php';
     <div class="status">
         <p>Status: <span id="statusMessage">Awaiting Payment</span></p>
     </div>
+    <div class="btn btn-warning px-3 py-3">Payment Completed</div>
 
     <!-- Footer -->
     <div class="footer">
@@ -253,8 +255,11 @@ include_once __DIR__.'/partials/header.php';
         // Set the wallet address
         document.getElementById('walletAddress').value = walletAddresses[crypto];
 
+        <?php
+            $total_item_price = $item_price * $item_quantity
+        ?>
         // Calculate and set the crypto amount needed for 200 USD
-        const amount = <?=$item_price?> / exchangeRates[crypto];
+        const amount = <?=$total_item_price?> / exchangeRates[crypto];
         document.getElementById('amount').textContent = `${amount.toFixed(6)} ${crypto.toUpperCase()}`;
     }
 

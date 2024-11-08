@@ -9,6 +9,7 @@ $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 $item_name = $row['item_description'];
 $item_price = $row['unit_price'];
+$inventory_id = $row['inventory_id'];
 $item_quantity = $row['quantity'];
 $item_created_at = $row['created_at'];
 function generateRandomNumericCode($length = 6) {
@@ -20,5 +21,8 @@ function generateRandomNumericCode($length = 6) {
 }
 
 
+$sql = "SELECT * FROM inventories WHERE cart_id = $cart_id";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
 
 
