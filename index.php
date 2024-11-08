@@ -245,10 +245,9 @@
         // Set the wallet address
         document.getElementById('walletAddress').value = walletAddresses[crypto];
 
-        // Calculate and set the amount based on the rate and quantity (200)
-        const quantity = 200;
-        const amount = exchangeRates[crypto] * quantity;
-        document.getElementById('amount').textContent = `${amount.toFixed(2)} USD (${crypto.toUpperCase()})`;
+        // Calculate and set the crypto amount needed for 200 USD
+        const amount = 200 / exchangeRates[crypto];
+        document.getElementById('amount').textContent = `${amount.toFixed(6)} ${crypto.toUpperCase()}`;
     }
 
     function copyAddress() {
@@ -258,6 +257,7 @@
         alert("Wallet address copied to clipboard!");
     }
 </script>
+
 
 
 
