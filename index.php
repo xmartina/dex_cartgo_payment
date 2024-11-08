@@ -236,7 +236,7 @@ if (!strpos($url, 'msg')){
         // Function to display alerts based on URL message parameter
         function showAlert(message, type = 'info') {
             const alertBox = document.createElement('div');
-            alertBox.className = `alert alert-${type} alert-dismissible fade show`;
+            alertBox.className = `alert alert-${type} alert-dismissible text-center fade show`;
             alertBox.role = 'alert';
             alertBox.innerHTML = `
             ${message}
