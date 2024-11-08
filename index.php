@@ -12,6 +12,7 @@ include_once __DIR__.'/partials/header.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crypto Payment Page</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         /* Basic Reset */
         * {
@@ -273,6 +274,6 @@ include_once __DIR__.'/partials/header.php';
 
 
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
