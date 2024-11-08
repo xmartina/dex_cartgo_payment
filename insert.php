@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__.'/../include/config.php';
+include_once __DIR__.'/include/config.php';
 
 // Get the cart_id from the POST data
 $cart_id = $_POST['cart_id'] ?? null;
