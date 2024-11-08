@@ -1,7 +1,6 @@
 <?php
-$btc_address = '3FZbgi29cpjq2GjdwV8eyHuJJnkLtktZc5';
-$eth_address = '0x32Be343B94f860124dC4fEe278FDCBD38C102D88';
-$usdt_address = '0x731d15b614C13C6A2AB1f5Bf7E52b68A5C3dE53d';
+$cart_id = $_GET['number'];
+include_once __DIR__.'/partials/header.php';
 ?>
 
 <!DOCTYPE html>
@@ -176,8 +175,8 @@ $usdt_address = '0x731d15b614C13C6A2AB1f5Bf7E52b68A5C3dE53d';
 <div class="container">
     <!-- Header -->
     <div class="header">
-        <div class="logo">YourCompany</div>
-        <a href="#" class="back-link">Back to Homepage</a>
+        <div class="logo"><img style="max-width: 120px;" src="https://dexcartgo.online/image/images/67082743707ae.webp?p=logo" alt=""></div>
+        <a href="/" class="back-link">Back to Homepage</a>
     </div>
 
     <!-- Page Title -->
@@ -186,8 +185,8 @@ $usdt_address = '0x731d15b614C13C6A2AB1f5Bf7E52b68A5C3dE53d';
     <!-- Payment Summary -->
     <div class="summary">
         <h2>Order Summary</h2>
-        <p>Item: Premium Service Package</p>
-        <p>Total Amount: <strong>$200 USD</strong></p>
+        <p>Item: <?=$item_name?>></p>
+        <p>Total Amount: <strong>$<?=$item_price?> USD</strong></p>
         <p>Transaction ID: #123456</p>
     </div>
 
@@ -215,8 +214,8 @@ $usdt_address = '0x731d15b614C13C6A2AB1f5Bf7E52b68A5C3dE53d';
             <button onclick="copyAddress()">Copy</button>
         </div>
 
-        <p>Amount to Send: <strong id="amount">0.0045 BTC</strong></p>
-        <p>Time Remaining: <span class="timer" id="timer">15:00</span></p>
+        <p>Amount to Send: <strong id="amount">$<?=$item_price?> USD</strong></p>
+<!--        <p>Time Remaining: <span class="timer" id="timer">15:00</span></p>-->
     </div>
 
     <!-- Transaction Status -->
@@ -252,7 +251,7 @@ $usdt_address = '0x731d15b614C13C6A2AB1f5Bf7E52b68A5C3dE53d';
         document.getElementById('walletAddress').value = walletAddresses[crypto];
 
         // Calculate and set the crypto amount needed for 200 USD
-        const amount = 200 / exchangeRates[crypto];
+        const amount = <?=$item_price?> / exchangeRates[crypto];
         document.getElementById('amount').textContent = `${amount.toFixed(6)} ${crypto.toUpperCase()}`;
     }
 
