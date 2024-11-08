@@ -11,8 +11,14 @@ $item_name = $row['item_description'];
 $item_price = $row['unit_price'];
 $item_quantity = $row['quantity'];
 $item_created_at = $row['created_at'];
+function generateRandomNumericCode($length = 6) {
+    $randomCode = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomCode .= rand(0, 9);
+    }
+    return $randomCode;
+}
 
 
-$uniqueCode = uniqid();
 
 
