@@ -227,6 +227,54 @@ include_once __DIR__.'/partials/header.php';
     <div class="status">
         <p>Status: <span id="statusMessage">Awaiting Payment</span></p>
     </div>
+
+    <script>
+        // Function to display alerts based on URL message parameter
+        function showAlert(message, type = 'info') {
+            const alertBox = document.createElement('div');
+            alertBox.className = `alert alert-${type} alert-dismissible fade show`;
+            alertBox.role = 'alert';
+            alertBox.innerHTML = `
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        `;
+            document.body.prepend(alertBox);
+
+            // Automatically remove the alert after 5 seconds
+            setTimeout(() => alertBox.remove(), 5000);
+        }
+
+        // Check URL parameters for 'msg' and display corresponding alert
+        const urlParams = new URLSearchParams(window.location.search);
+        const msg = urlParams.get('msg');
+
+        if (msg) {
+            switch (msg) {
+                case 'payment_details_recorded_successfully':
+                    showAlert('Payment details have been recorded successfully!', 'success');
+                    break;
+                case 'error_recording_payment_details':
+                    showAlert('An error occurred while recording payment details. Please try again.', 'danger');
+                    break;
+                case 'shop_details_not_found':
+                    showAlert('Shop details could not be found. Please contact support.', 'warning');
+                    break;
+                case 'inventory_details_not_found':
+                    showAlert('Inventory details could not be found. Please contact support.', 'warning');
+                    break;
+                case 'cart_details_not_found':
+                    showAlert('Cart details could not be found. Please check your cart ID.', 'warning');
+                    break;
+                case 'cart_id_not_provided':
+                    showAlert('Cart ID was not provided. Please check and try again.', 'warning');
+                    break;
+                default:
+                    showAlert('An unexpected error occurred. Please try again.', 'danger');
+                    break;
+            }
+        }
+    </script>
+
     <div class="text-muted text-center mb-2">Click the button below if you have completed your payment</div>
     <div class="d-flex justify-content-center">
         <!-- Form to send data to insert.php on button click -->
