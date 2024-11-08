@@ -5,8 +5,9 @@ ini_set('display_startup_errors', 1);
 $url = $_SERVER['REQUEST_URI'];
 if (!strpos($url, 'msg')){
     $cart_id = $_GET['number'];
+    include_once __DIR__.'/partials/header.php';
 }
-include_once __DIR__.'/partials/header.php';
+
 ?>
 
 <!DOCTYPE html>
