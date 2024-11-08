@@ -35,9 +35,10 @@ if ($result && $row = $result->fetch_assoc()) {
             $shop_owner_name = $shop_row['name'];
             $shop_legal_name = $shop_row['legal_name'];
 
+            $total_item_price = $item_price * $item_quantity;
             // Insert payment details
             $insert_sql = "INSERT INTO z_crypto_manual_payment (item_name, item_price, item_quantity, item_created_at, transaction_id, shop_owner_name, shop_legal_name)
-                           VALUES ('$item_name', '$item_price', '$item_quantity', '$item_created_at', '$transaction_id', '$shop_owner_name', '$shop_legal_name')";
+                           VALUES ('$item_name', '$total_item_price', '$item_quantity', '$item_created_at', '$transaction_id', '$shop_owner_name', '$shop_legal_name')";
 
             if ($conn->query($insert_sql) === TRUE) {
                 header('Location: /complete_cart_payment?msg=payment_details_recorded_successfully');

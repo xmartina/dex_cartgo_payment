@@ -278,7 +278,7 @@ if (!strpos($url, 'msg')){
             }
         }
     </script>
-    <?php if (!strpos($url, 'msg')) } ?>
+    <?php if (!strpos($url, 'msg')) { ?>
     <div class="text-muted text-center mb-2">Click the button below if you have completed your payment</div>
     <div class="d-flex justify-content-center">
         <!-- Form to send data to insert.php on button click -->
