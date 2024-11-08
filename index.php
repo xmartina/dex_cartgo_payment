@@ -189,11 +189,11 @@ if (!strpos($url, 'msg')){
 
     <!-- Page Title -->
     <h1>Complete Payment</h1>
-
+    <?php if (!strpos($url, 'msg')) { ?>
     <!-- Payment Summary -->
     <div class="summary">
         <h2>Order Summary</h2>
-        <p>Item: <?=$item_name?>></p>
+        <p>Item: <?=$item_name?></p>
         <p>Total Amount: <strong>$<?=$item_price?> USD</strong></p>
         <p>Total Quality: <strong><?=$item_quantity?></strong></p>
         <p>Transaction ID: <strong>#<?=generateRandomNumericCode(6) ?></strong></p>
@@ -231,7 +231,7 @@ if (!strpos($url, 'msg')){
     <div class="status">
         <p>Status: <span id="statusMessage">Awaiting Payment</span></p>
     </div>
-
+    <?php } ?>
     <script>
         // Function to display alerts based on URL message parameter
         function showAlert(message, type = 'info') {
@@ -278,7 +278,7 @@ if (!strpos($url, 'msg')){
             }
         }
     </script>
-
+    <?php if (!strpos($url, 'msg')) } ?>
     <div class="text-muted text-center mb-2">Click the button below if you have completed your payment</div>
     <div class="d-flex justify-content-center">
         <!-- Form to send data to insert.php on button click -->
@@ -334,7 +334,7 @@ if (!strpos($url, 'msg')){
 </script>
 
 
-
+<?php } ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
