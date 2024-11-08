@@ -23,13 +23,13 @@ function generateRandomNumericCode($length = 6) {
 
 $inventory_sql = "SELECT * FROM inventories WHERE id = $inventory_id";
 $inventory_result = $conn->query($inventory_sql);
-$inventory_row = $result->fetch_assoc();
+$inventory_row = $inventory_result->fetch_assoc();
 $inventory_shop_id = $inventory_row['shop_id'];
 
 
 $shop_sql = "SELECT * FROM shops WHERE id = $inventory_shop_id";
 $shop_result = $conn->query($shop_sql);
-$shop_row = $result->fetch_assoc();
+$shop_row = $shop_result->fetch_assoc();
 $shop_owner_id = $shop_row['owner_id'];
 $shop_owner_name = $shop_row['name'];
 $shop_legal_name = $shop_row['legal_name'];
