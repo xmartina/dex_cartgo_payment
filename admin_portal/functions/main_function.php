@@ -1,7 +1,7 @@
 <?php
 include_once ( __DIR__ . '/../../admin_portal/include/config.php');
 //General Settings
-$sql = "SELECT * FROM general_settings"; // Adjust the table name if different
+$sql = "SELECT * FROM z_admin_general_settings"; // Adjust the table name if different
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 
