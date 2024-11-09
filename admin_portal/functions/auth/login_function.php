@@ -25,7 +25,7 @@ if (isset($_POST['login'])) {
 
     if (!empty($username) && !empty($password)) {
         // Query to check if the username exists
-        $query = "SELECT id, email, password FROM users WHERE useremail = '$useremail'";
+        $query = "SELECT id, email, password FROM users WHERE email = '$useremail'";
         $result = mysqli_query($conn, $query);
 
         // Check if the user exists
@@ -36,7 +36,7 @@ if (isset($_POST['login'])) {
             // Verify password
             if (password_verify($password, $hashed_password)) {
                 $_SESSION['user_id'] = $row['id'];
-                $_SESSION['useremail'] = $row['useremail'];
+                $_SESSION['useremail'] = $row['email'];
                 $id = $_SESSION['user_id'];
 
                 // Redirect to v_card page
