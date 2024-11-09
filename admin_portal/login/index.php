@@ -463,7 +463,7 @@ include_once __DIR__.'/../../admin_portal/partials/header.php';
                         <p class="mb-4 text-muted op-7 fw-normal text-center">Welcome back!</p>
                         <div class="row gy-3">
                             <div class="col-xl-12">
-                                <label for="signin-username" class="form-label text-default">User Name</label>
+                                <label for="signin-username" class="form-label text-default">User Email</label>
                                 <input type="text" name="email" class="form-control form-control-lg" id="signin-username" placeholder="Username" required>
                             </div>
                             <div class="col-xl-12 mb-2">
